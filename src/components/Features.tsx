@@ -45,7 +45,7 @@ const FeatureCard = ({ feature }: { feature: typeof features[0] }) => {
     <div className="bg-gray-800 rounded-lg p-6 transition-transform hover:-translate-y-1 hover:shadow-lg border border-gray-700 relative overflow-hidden">
       {/* Overlay pattern */}
       <div className="absolute inset-0 opacity-5">
-        <ImageComponent 
+        <ImageComponent
           src={IMAGES.EMERALD_ORE}
           alt="Emerald ore pattern"
           style={{
@@ -66,9 +66,9 @@ const FeatureCard = ({ feature }: { feature: typeof features[0] }) => {
 const Features = () => {
   return (
     <section id="features" className="py-20 relative">
-      {/* Animated background - minecraft stone pattern */}
+      {/* Animated background - Minecraft stone pattern */}
       <div className="absolute inset-0 bg-gray-900">
-        <ImageComponent 
+        <ImageComponent
           src={IMAGES.STONE_PATTERN}
           alt="Stone pattern background"
           style={{
@@ -78,11 +78,11 @@ const Features = () => {
           }}
         />
       </div>
-      
+
       {/* Moving blocks animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => (
-          <div 
+          <div
             key={i}
             className="absolute w-16 h-16 opacity-8 bg-contain bg-no-repeat"
             style={{
@@ -96,7 +96,7 @@ const Features = () => {
           ></div>
         ))}
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Essential Features</h2>
@@ -104,7 +104,7 @@ const Features = () => {
             Elevate your Minecraft server security with these powerful features
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} />
@@ -113,25 +113,26 @@ const Features = () => {
       </div>
 
       {/* Add the keyframes for the floating animation */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 0.05;
+      <style>
+        {`
+          @keyframes float {
+            0% {
+              transform: translateY(0) rotate(0deg);
+              opacity: 0.05;
+            }
+            50% {
+              transform: translateY(-20px) rotate(180deg);
+              opacity: 0.1;
+            }
+            100% {
+              transform: translateY(0) rotate(360deg);
+              opacity: 0.05;
+            }
           }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-            opacity: 0.1;
-          }
-          100% {
-            transform: translateY(0) rotate(360deg);
-            opacity: 0.05;
-          }
-        }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
 
 export default Features;
-
